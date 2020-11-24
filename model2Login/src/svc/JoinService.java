@@ -5,15 +5,15 @@ import java.sql.Connection;
 import dao.LoginDAO;
 import vo.Member;
 
-public class LoginService {
+public class JoinService {
 
-	public Member getLoginMember(String id, String passwd) throws Exception {
+	public int insertMember(Member member) {
 		LoginDAO loginDAO = LoginDAO.getInstance();
 		Connection con = getConnection();
 		loginDAO.setConnection(con);
-		Member loginMember = loginDAO.selectLoginMember(id, passwd);
+		int joinMember = loginDAO.insertMember(member);
 		
-		return loginMember;
+		return joinMember;
 	}
-	
+
 }

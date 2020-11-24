@@ -10,6 +10,7 @@ public class LoginDAO {
 	private static LoginDAO loginDAO;
 	private Connection con;
 	
+	
 	private LoginDAO() {
 	}
 
@@ -35,20 +36,21 @@ public class LoginDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				loginMember = new Member();
+				loginMember.setId(rs.getString("id"));
+				loginMember.setPasswd(rs.getString("passwd"));
 				loginMember.setAddr(rs.getString("addr"));
 				loginMember.setAge(rs.getInt("age"));
 				loginMember.setEmail(rs.getString("email"));
 				loginMember.setGender(rs.getString("gender"));
-				loginMember.setId(rs.getString("id"));
 				loginMember.setName(rs.getString("name"));
 				loginMember.setNation(rs.getString("nation"));
-				loginMember.setPasswd(rs.getString("passwd"));
 			}
+			commit(con);
 		} catch(Exception e) {
+			rollback(con);
 			e.printStackTrace();
 		} finally {
 			try {
-				close(rs);
 				close(pstmt);
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -57,33 +59,30 @@ public class LoginDAO {
 		return loginMember;
 	}
 
-	public int selectJoinMember(Member article) {
+	public int insertMember(Member member) {
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "";
-		int insertCount = 0;
+		int joinMember = 0;
 		
 		try {
-			sql = "insert into users values (?, ?, ?, ?, ?, ?, ?, ?)";
-			
+			String sql = "insert into users values (?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, article.getId());
-			pstmt.setString(2, article.getPasswd());
-			pstmt.setString(3, article.getAddr());
-			pstmt.setInt(4, article.getAge());
-			pstmt.setString(5, article.getEmail());
-			pstmt.setString(6, article.getGender());
-			pstmt.setString(7, article.getName());
-			pstmt.setString(8, article.getNation());
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPasswd());
+			pstmt.setString(3, member.getAddr());
+			pstmt.setInt(4, member.getAge());
+			pstmt.setString(5, member.getEmail());
+			pstmt.setString(6, member.getGender());
+			pstmt.setString(7, member.getName());
+			pstmt.setString(8, member.getNation());
 			
-			insertCount = pstmt.executeUpdate();
-		} catch(Exception ex) {
-			System.out.println("joinInsert 에러: " + ex);
+			joinMember = pstmt.executeUpdate();
+			commit(con);
+		} catch(Exception e) {
+			rollback(con);
+			e.printStackTrace();
 		} finally {
-			close(rs);
 			close(pstmt);
 		}
-		return insertCount;
+		return joinMember;
 	}
-	
 }

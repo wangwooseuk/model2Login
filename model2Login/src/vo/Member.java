@@ -1,19 +1,25 @@
 package vo;
 
 public class Member {
-	private String name;
-	private String addr;
-	private int age;
-	private String nation;
 	private String id;
 	private String passwd;
-	private String gender;
+	private String addr;
+	private int age;
 	private String email;
-	public String getName() {
-		return name;
+	private String gender;
+	private String name;
+	private String nation;
+	public String getId() {
+		return id;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getPasswd() {
+		return passwd;
+	}
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
 	}
 	public String getAddr() {
 		return addr;
@@ -27,23 +33,11 @@ public class Member {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public String getNation() {
-		return nation;
+	public String getEmail() {
+		return email;
 	}
-	public void setNation(String nation) {
-		this.nation = nation;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getPasswd() {
-		return passwd;
-	}
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getGender() {
 		return gender;
@@ -51,11 +45,17 @@ public class Member {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getEmail() {
-		return email;
+	public String getName() {
+		return name;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getNation() {
+		return nation;
+	}
+	public void setNation(String nation) {
+		this.nation = nation;
 	}
 	
 }

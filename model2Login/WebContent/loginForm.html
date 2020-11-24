@@ -39,7 +39,7 @@
 <body>
 	<section id="loginFormArea">
 		<h1>로그인</h1>
-		<form action="login.do" method="post">
+		<form action="loginPro.do" method="post">
 			<fieldset>
 				<table>
 					<tr>
@@ -60,11 +60,10 @@
 					</tr>
 				</table>
 				<input type="submit" value="로그인" id="selectButton"/>
+				<input type="button" value="회원가입" style="margin-top: 10px;" 
+					onclick="location.href='join.do';"/>
 			</fieldset>
 		</form>
-					<form action="join.do" method="post">
-						<input type="submit" value="회원가입" id="selectButton"/>
-					</form>
 	</section>
 </body>
 </html>

@@ -13,9 +13,10 @@
 		
 		if(loginMember == null) {
 	%>
-		<a href="loginForm.do">로그인</a>
+		<a href="login.do">로그인</a>
 	<%
 		} else {
+		out.println("<h2>[ " + loginMember.getId() + " ] 님이 접속하였습니다</h2>");
 	%>
 		<a href="logout.do">로그아웃</a>
 	<%

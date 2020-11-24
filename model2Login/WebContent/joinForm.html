@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#joinFormArea {
+		margin: auto;
+		width: 400px;
+		border: 2px double purple;
+		border-radius: 10px;
+		text-align: center;
+	}
+	
+	fieldset {
+		text-align: center;
+		border: none;
+	}
+	
+	#selectButton {
+		margin-top: 10px;
+	}
+	
+	table {
+		width: 380px;
+		margin: auto;
+	}
+	
+	.td_left {
+		width: 180px;
+	}
+
+	.td_right {
+		width: 200px;
+	}
+</style>
+</head>
+<body>
+	<section id="joinFormArea">
+		<h1>회원가입</h1>
+		<form action="joinPro.do" method="post">
+			<fieldset>
+				<table>
+					<tr>
+						<td class="td_left">
+							<label for="id">아이디:</label>
+						</td>
+						<td class="td_right">
+							<input type="text" name="id" id="id" required="required" autocomplete="no"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="td_left">
+							<label for="passwd">비밀번호 : </label>
+						</td>
+						<td class="td_right">
+							<input type="password" name="passwd" id="passwd" required="required" autocomplete="no"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="td_left">
+							<label for="addr">주소 : </label>
+						</td>
+						<td class="td_right">
+							<input type="text" name="addr" id="addr" required="required" autocomplete="no"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="td_left">
+							<label for="age">나이 : </label>
+						</td>
+						<td class="td_right">
+							<input type="number" name="age" id="age" required="required" autocomplete="no"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="td_left">
+							<label for="email">이메일 : </label>
+						</td>
+						<td class="td_right">
+							<input type="email" name="email" id="email" required="required" autocomplete="no"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="td_left">
+							<label for="gender1">성별 : </label>
+						</td>
+						<td class="td_right">
+							<input type="radio" name="gender" value="M" id="gender1" checked="checked"/><label for="gender1">남자</label>
+							<input type="radio" name="gender" value="F" id="gender2"/><label for="gender2">여자</label>
+						</td>
+					</tr>
+					<tr>
+						<td class="td_left">
+							<label for="name">이름 : </label>
+						</td>
+						<td class="td_right">
+							<input type="text" name="name" id="name" required="required" autocomplete="no"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="td_left">
+							<label for="nation">국적 : </label>
+						</td>
+						<td class="td_right">
+							<select id="nation" name="nation">
+								<option selected="selected">선택하세요</option>
+								<option value="kor">대한민국</option>
+								<option value="usa">미국</option>
+								<option value="chi">중국</option>
+								<option value="jap">일본</option>
+								<option value="etc">기타</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+				<input type="submit" value="가입완료" id="selectButton"/>
+				<input type="reset" value="다시작성" id="selectButton"/>
+				<input type="button" value="메인페이지" style="margin-top: 10px;"
+						onclick="location.href='index.do';"/>
+			</fieldset>
+		</form>
+	</section>
+</body>
+</html>
